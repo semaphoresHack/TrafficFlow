@@ -10,17 +10,16 @@ const UserSchema = new mongoose.Schema({
     phone : {
         type: String,
         required: true,
-        index: true,
     },
     reports : {
         type: [mongoose.SchemaTypes.ObjectId],
         required : true,
         default : Array
     },
-    email : {
-        type: String,
+    rewards : {
+        type: Number,
         required: true,
-        index: true,
+        default: 0
     },
 });
 
