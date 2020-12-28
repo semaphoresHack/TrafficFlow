@@ -1,6 +1,6 @@
-const { urlencoded } = require('express');
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 5000;
 
@@ -13,10 +13,13 @@ const dbUrl = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSW
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).catch(err => console.log(err)).then(() => module.exports.connStatus = dbConn=true);
+}).catch(err => console.log(err)).then(() => {
+    dbConn = true;
+    module.exports.connStatus = dbConn;
+})
 
 //middlewares
-app.use(urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:true}));
 
 
 //routing
