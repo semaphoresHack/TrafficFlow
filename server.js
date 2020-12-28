@@ -19,11 +19,15 @@ mongoose.connect(dbUrl, {
 })
 
 //middlewares
+app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 
 //routing
 app.use('/', require('./routes/home'));
+app.use('/user', require('./routes/user'));
+app.use('/res', require('./routes/res'));
+app.use('/report', require('./routes/report'));
 
 app.listen(PORT, () => {
     console.log(`Running at port:${PORT}`);
