@@ -10,12 +10,13 @@ const app = express();
 let dbConn = false;
 //
 const dbUrl = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@trafficflow.sozdf.mongodb.net/trafficFlow?retryWrites=true&w=majority`;
-mongoose.connect(dbUrl, {
+const connection=  mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).catch(err => console.log(err)).then(() => {
     dbConn = true;
     module.exports.connStatus = dbConn;
+    module.exports.connection = connection;
 })
 
 //middlewares
