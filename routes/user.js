@@ -95,8 +95,7 @@ router.post('/:id/report', upload.fields([{name:"proofs", maxCount: 8}]), (req, 
     }
     let proofs = new Array();
     files.forEach(proof=> {
-        console.log(proof.id);
-        proofs.push(proof.id);
+        proofs.push(proof.filename);
     });
     let newReport = new Report({
         reportedBy,
@@ -107,7 +106,6 @@ router.post('/:id/report', upload.fields([{name:"proofs", maxCount: 8}]), (req, 
     });
     let reportId = null;
     newReport.save().then(doc => {
-        console.log(doc);
         reportId = doc.id;
         res.json(doc);
             //after response add report to User
@@ -123,6 +121,7 @@ router.post('/:id/report', upload.fields([{name:"proofs", maxCount: 8}]), (req, 
         });
 
     }).catch(err => {
+        console.log();
         res.json({
             error : "Can't Save the Report",
             rectify : "Internal Server Error",

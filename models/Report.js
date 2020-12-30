@@ -29,14 +29,14 @@ const ReprtSchema = new mongoose.Schema({
         required: true,
     },
     proofs : {
-        type : [mongoose.Schema.ObjectId],
+        type : [String],
         required : true,
         default : Array,
     },
     description : {
         type: String,
         required: false,
-    }
+    },
 
 });
 
