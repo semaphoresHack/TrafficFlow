@@ -25,13 +25,17 @@ const ReprtSchema = new mongoose.Schema({
         required : false,
     },
     geoLocation : {
-        type : LocationSchema,
+        type : [Number],
         required: true,
     },
     proofs : {
         type : [mongoose.Schema.ObjectId],
         required : true,
         default : Array,
+    },
+    description : {
+        type: String,
+        required: false,
     }
 
 });
