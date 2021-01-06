@@ -30,6 +30,13 @@ app.use('/user', require('./routes/user'));
 app.use('/res', require('./routes/res'));
 app.use('/report', require('./routes/report'));
 
+app.get("/*", (req, res) => {
+    res.status(404).json({
+        error : 404,
+        desc : "Page Not Found"
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`Running at port:${PORT}`);
 });
