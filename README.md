@@ -97,4 +97,4 @@ returns new report JSON
 
 dataStream (in Binary)
 
-:name is resourceName (image, audio, video), best for sync fetch
+:name is resourceName (image, audio, video), best for async fetch
