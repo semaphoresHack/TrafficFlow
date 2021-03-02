@@ -33,7 +33,7 @@ Leverage Traffic Control Management via Reward based Reporting System
 
 {
 
-    _id: UserID,
+    uuid: UserID,
     username: (*optional*, *default:Guest*),
     phone: Number,
     reports: Array(ReportIDs),
@@ -45,7 +45,8 @@ Leverage Traffic Control Management via Reward based Reporting System
 ### **POST** /user/new
 
 {
-
+    
+    uuid: Firebase UUID
     username: String (*optional*, *default:Guest*),
     phone: Number,
     email: String (*optional*)

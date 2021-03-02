@@ -53,8 +53,11 @@ router.get('/:id/info', (req, res) => {
 //route : /user/new
 //remark : create new User
 router.post('/new', (req, res) => {
-    const {username, phone, reports, rewards, email} = req.body;
+    const {uuid, username, phone, reports, rewards, email} = req.body;
     const updateObj = {};
+    if(typeof uuid != 'undefined'){
+        updateObj.uuid = uuid;
+    }
     if(typeof username != 'undefined'){
         updateObj.username = username;
     }
